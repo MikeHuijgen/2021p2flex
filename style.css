@@ -41,7 +41,7 @@ body{
 }
 
 .boardoverlay{
-    top: 0px;
+    top: 70px;
     position: absolute;
     background-image: url(img/snakes.png);
     width: 600px;
