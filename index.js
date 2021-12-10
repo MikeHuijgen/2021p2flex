@@ -38,7 +38,7 @@ class Game
         this.boardoverlayDiv = document.getElementsByClassName("boardoverlay")[0];
 
         this.tiles = [];
-        this.player = [];
+        this.players = [];
         this.playerturn = 0;
         this.setupBoard();
     }
@@ -102,7 +102,34 @@ class Game
 
     start(amountOfPlayers)
     {
+        //select player hide
+        this.selectplayerDiv.style.display = "none"
 
+        //winner hide
+        this.winnerDiv[i].style.display = "none";
+        
+        //alle 4 pawns hide -> selectie class pawn
+        var pawnArrey = document.getElementsByClassName("pawn")
+
+        for (var i = 0; i < pawnArrey.length; i++)
+        {
+            pawnArrey[i].style.display = "none";
+        }
+
+        //player aanmaken
+        var amountOfPlayers;
+
+        for (var i = 0; i < amountOfPlayers.length; i++)
+        {
+            let player = new Player(i);
+            this.players.push(player);
+        }
+
+        //playerturn =-1
+        this.playerturn = -1;
+
+        //eerste beurt starten
+        this.moveToNextPlayer();
     }
 
     moveToNextPlayer()
