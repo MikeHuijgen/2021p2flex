@@ -79,3 +79,7 @@ body{
     background-color: green;
     color: white;
 }
+
+.winner{
+    display: none;
+}

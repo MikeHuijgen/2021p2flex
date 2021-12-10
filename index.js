@@ -79,10 +79,24 @@ class Game
             let tile = new Tile(div);
             this.tiles.push(tile);
         }
+
+        this.setupGotos();
     }
 
     setupGotos()
     {
+        let goto = [[6, 14], [16, 4], [17, 23], [27, 33], [29, 10], [38, 43], [39, 20], [45, 34]];
+
+        for (var i = 0; i < goto.length; i++)
+        {
+            let element = goto[i];
+
+            let start = element[0] - 1;
+            let end = element[1] - 1;
+
+            let tile = this.tiles[start];
+            tile.goto = end;
+        }
 
     }
 
