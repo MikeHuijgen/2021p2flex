@@ -106,7 +106,7 @@ class Game
         this.selectplayerDiv.style.display = "none"
 
         //winner hide
-        this.winnerDiv[i].style.display = "none";
+        this.winnerDiv.style.display = "none";
         
         //alle 4 pawns hide -> selectie class pawn
         var pawnArrey = document.getElementsByClassName("pawn")
@@ -148,11 +148,11 @@ class Game
 
     draw()
     {
-        //pawn neerzetten op goede locatie
-
-
-        // setPawn aanroepen
-        this.setPawn();
+        for (var i = 0; i < this.players.length; i++)
+        {
+            let players = this.players[i];
+            this.setPawn(i, players.atTile);
+        }
     }
 
     roll()
@@ -162,7 +162,11 @@ class Game
 
     setPawn(playerI, atTile)
     {
-        
+        let tile = this.tiles[atTile];
+        let pawn = this.players[playerI].pawn;
+
+        pawn.style.top = tile.div.style.top;
+        pawn.style.left = tile.div.style.left;
     }
 
     makeBoardDiv(x,y,tileDisplayNumber)
