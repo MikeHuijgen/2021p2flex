@@ -117,9 +117,8 @@ class Game
         }
 
         //player aanmaken
-        var amountOfPlayers;
 
-        for (var i = 0; i < amountOfPlayers.length; i++)
+        for (var i = 0; i < amountOfPlayers; i++)
         {
             let player = new Player(i);
             this.players.push(player);
@@ -134,12 +133,26 @@ class Game
 
     moveToNextPlayer()
     {
+        //playerturn ophogen 
+        this.playerturn++;
 
+        //playerturn reset
+        if(this.playerturn == this.players.length)
+        {
+            this.playerturn = 0;
+        }
+
+        //aanroepen draw
+        this.draw();
     }
 
     draw()
     {
+        //pawn neerzetten op goede locatie
 
+
+        // setPawn aanroepen
+        this.setPawn();
     }
 
     roll()
@@ -147,9 +160,9 @@ class Game
 
     }
 
-    setPawn()
+    setPawn(playerI, atTile)
     {
-
+        
     }
 
     makeBoardDiv(x,y,tileDisplayNumber)
