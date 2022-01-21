@@ -51,8 +51,8 @@ class Game
             3, 3,3, 3, 3, 3, 3, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1
         ]
         
-        let x = 0;
-        let y = 10;
+        let x = 9;
+        let y = 12;
         let tileSize = 55;
          
         for (var i = 0; i < path.length; i++)
@@ -109,7 +109,7 @@ class Game
         this.winnerDiv.style.display = "none";
         
         //alle 4 pawns hide -> selectie class pawn
-        var pawnArrey = document.getElementsByClassName("pawn")
+        var pawnArrey = document.getElementsByClassName("pawn");
 
         for (var i = 0; i < pawnArrey.length; i++)
         {
@@ -157,6 +157,13 @@ class Game
 
     roll()
     {
+        let gooien = Math.floor((Math.random() * 6) + 1);
+        let player = this.players[this.playerturn];
+
+        this.rollDiv.style.backgroundImage = "url('img/dice" + gooien + ".png')";
+
+        player.atTile += gooien;
+        this.moveToNextPlayer(); 
 
     }
 
