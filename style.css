@@ -1,5 +1,5 @@
 body{
-    background-color: lightgray;
+    background-color: bisque;
 }
 
 .selectplayers{ 
@@ -16,30 +16,29 @@ body{
     background-color: antiquewhite;
 }
 
-.main{
-
-}
-
 .ui{
     margin: 5px;
     display: flex;
     justify-content: center;
+    height: 50px;
 }
 
 .roll{
-    display: inline-block;
+    float: left;
     width: 50px;
     height: 50px;
     background-image:url(img/dice6.png);
     cursor: pointer;
+    margin-right: 5px ;
 }
 
 
 .playerturn{
-    display: inline-block;
+    /*display: inline-block;*/
+    float: left;
     background-color: antiquewhite;
     width: 50px;
-    height: 20px;
+    height: 50px;
 }
 
 .board{

@@ -141,6 +141,7 @@ class Game
         {
             this.playerturn = 0;
         }
+        this.playerturnDiv.textContent = "turn" + (this.playerturn+1);
 
         //aanroepen draw
         this.draw();
@@ -163,6 +164,25 @@ class Game
         this.rollDiv.style.backgroundImage = "url('img/dice" + gooien + ".png')";
 
         player.atTile += gooien;
+
+        if(player.atTile >= 49)
+        {
+            this.winnerDiv.style.display = "block";
+            this.winnerDiv.textContent = "player" + (this.playerturn+1) +"wins!!!";
+            this.mainDiv.style.display = "none";
+            return;
+        }
+
+        this.draw();
+
+        let tile = this.tiles[player.atTile];
+
+        if(tile.goto != -1)
+        {
+            player.atTile = tile.goto;
+            this.draw();
+        }
+
         this.moveToNextPlayer(); 
 
     }
